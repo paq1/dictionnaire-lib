@@ -1,0 +1,1 @@
+pub mod dictionnaire_service_spec;
