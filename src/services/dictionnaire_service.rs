@@ -1,7 +1,7 @@
 pub struct Dictionnaire;
 
 impl Dictionnaire {
-    fn words() -> Vec<&str> {
+    pub fn words() -> Vec<&str> {
         vec![
             "ABACULE",
             "ABAISSA",
