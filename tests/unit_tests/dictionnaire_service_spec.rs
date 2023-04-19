@@ -9,11 +9,8 @@ pub fn new_dictionnaire_service_should_load_some_words() {
 
 #[test]
 pub fn random_word_should_return_word_higher_than_0() {
-
     let expected = true;
-
     let dictionnaire_service = DictionnaireService::new();
     let word = dictionnaire_service.random_word();
-
     assert_eq!(word.len() > 0, expected)
 }
