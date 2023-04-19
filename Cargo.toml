@@ -2,7 +2,7 @@
 name = "dictionnaire"
 version = "0.1.0"
 edition = "2021"
-description = "tous les mots francais"
+description = "WIP tous les mots francais"
 license = "MIT OR Apache-2.0"
 authors = ["paq1"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
