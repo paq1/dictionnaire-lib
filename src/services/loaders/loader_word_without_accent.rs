@@ -11,7 +11,7 @@ impl LoaderWords<Vec<String>> for LoaderWordsWithoutAccents {
         let data = include_str!("../../../data/french.txt");
         data
             .split("\n")
-            .filter(|e| Self::has_invalid_char(*e))
+            .filter(|e| !Self::has_invalid_char(*e))
             .map(|word| self.replace_accents(word))
             .map(|e| e.to_string())
             .collect::<Vec<_>>()
