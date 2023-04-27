@@ -1,2 +1,3 @@
 pub mod dictionnaire_service;
-pub(crate) mod loader;
+pub mod random_word;
+pub mod loaders;

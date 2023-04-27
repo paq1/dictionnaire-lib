@@ -1,25 +1,23 @@
-use rand::Rng;
-use crate::services::loader::load_words;
+use crate::core::services::loader::LoaderWords;
+use crate::services::random_word::RandomWord;
+use crate::core::services::words::WordsContainer;
 
 pub struct DictionnaireService {
-    pub words: Vec<String>
+    pub words: Vec<String>,
 }
 
-impl DictionnaireService {
-    pub fn new() -> Self {
-        Self {
-            words: load_words()
-        }
+impl WordsContainer for DictionnaireService {
+    fn get_words(&self) -> &Vec<String> {
+        &self.words
     }
+}
 
-    pub fn random_word(&self) -> String {
-        let taille = self.words.len() as u32;
+impl RandomWord for DictionnaireService {}
 
-        let mut rnd = rand::thread_rng();
-        let random_index = rnd.gen_range(0..taille);
-
-        self.words.iter().nth(random_index as usize)
-            .map(|v| v.to_string())
-            .unwrap_or("".to_string())
+impl DictionnaireService {
+    pub fn new(loader: Box<dyn LoaderWords<Vec<String>>>) -> Self {
+        Self {
+            words: loader.load_words(),
+        }
     }
 }
